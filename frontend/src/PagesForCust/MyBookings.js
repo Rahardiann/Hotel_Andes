@@ -182,11 +182,11 @@ export default class MyBookings extends React.Component {
 
     render() {
         return (
-            <div>
+            <div name='mybooks' className='relative bg-krem min-h-screen '>
                 <Navbar />
 
-                <div className="m-6 pl-6">
-                    <p className="text-xl font-semibold text-red-600">History </p>
+                <div className="m-6 pl-6 ">
+                    <p className="text-xl font-semibold text-main">History </p>
                     <p className="text-5xl font-bold mt-2">Transaction List</p>
                     <div className="flex mt-6">
                         <div className="flex rounded w-1/2">
@@ -198,7 +198,7 @@ export default class MyBookings extends React.Component {
                                 value={this.state.keyword}
                                 onChange={this.handleChange}
                             />
-                            <button className="w-1/6 ml-2 px-4 text-white bg-red-600 rounded hover:bg-red-700" onClick={this._handleFilter}>
+                            <button className="w-1/6 ml-2 px-4 text-white bg-main rounded hover:bg-black" onClick={this._handleFilter}>
                                 <FontAwesomeIcon icon={faSearch} size="" />
                             </button>
                         </div>
@@ -332,7 +332,7 @@ export default class MyBookings extends React.Component {
                                                         }
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap">
-                                                        <button class="bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded" onClick={() => this.handlePrint(item)}>
+                                                        <button class="bg-main hover:bg-black text-white py-1 px-2 rounded" onClick={() => this.handlePrint(item)}>
                                                             <FontAwesomeIcon icon={faPrint} size="lg" />
                                                         </button>
                                                     </td>

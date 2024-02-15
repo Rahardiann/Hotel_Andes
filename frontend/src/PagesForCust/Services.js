@@ -8,9 +8,9 @@ import { faBowlFood, faBed , faSwimmingPool} from "@fortawesome/free-solid-svg-i
 export default class Services extends React.Component {
     render() {
         return (
-            <div>
+            <div name='services' className='relative bg-krem min-h-screen flex-1 flex-col justify-between'>
                 <Navbar />
-
+                
                 <div className="text-center pb-8">
                     <p className='p-8 text-5xl font-bold'>The <span className="text-main">Services</span> You Get From AndesHotel</p>
                     <p className="mr-64 ml-64  text-gray-600 text-xl">No more Suitable than AndesHotel</p>
@@ -45,9 +45,11 @@ export default class Services extends React.Component {
                             </a>
                             <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than AndesHotel</p>
                         </div>
+                        
                     </div>
+                    
                 </div>
-
+                
             </div>
         )
     }
