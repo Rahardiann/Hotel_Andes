@@ -299,9 +299,9 @@ export default class Home extends React.Component {
                     <div class="relative w-full h-full max-w-lg md:h-auto border-2 border-gray-500 rounded-lg shadow shadow-2xl items-center">
                         <div class="relative bg-white rounded-lg">
                             <div class="flex items-center justify-between p-5 border-b rounded-t border-gray-500">
-                                <h3 class="p-2 text-xl font-medium text-gray-900 ">
+                                <h4 class="p-2 text-xl font-medium text-gray-900 ">
                                     {this.state.nama_tipe_kamar}
-                                </h3>
+                                </h4>
                                 <button type="button" class="text-gray-400 bg-transparent hover:bg-red-500 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white" data-modal-hide="medium-modal" onClick={() => this.handleClose()}>
                                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                     <span class="sr-only">Close modal</span>
