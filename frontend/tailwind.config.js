@@ -8,7 +8,8 @@ module.exports = {
       colors: {
         'main': '#192B48',
         'krem': '#E5E0DC',
-        'krem1': '#E3DAD3'
+        'krem1': '#E3DAD3',
+        'abu' : '#767676',
 
       }
     },
