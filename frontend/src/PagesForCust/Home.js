@@ -252,7 +252,7 @@ export default class Home extends React.Component {
         
                 {/* ini buat available room */}
                 {this.state.rooms.length > 0 && (
-                    <div className="bg-krem m-6 pl-6">
+                    <div className="bg-krem m-6 pl-6 pt-6 min-h-screen">
                         <p className="text-5xl font-bold mt-2"><span className="text-blue-600">Available</span> Room </p>
         
                         <div class="grid grid-cols-4 gap-4 mt-8">
@@ -266,7 +266,7 @@ export default class Home extends React.Component {
                                             </div>
                                             <div class="px-6 py-4">
                                                 <div class="font-bold text-2xl mb-2">{item.nama_tipe_kamar}</div>
-                                                <div class="font-bold text-xl mb-2 text-blue-600">Rp {item.harga}/night</div>
+                                                <div class="font-bold text-xl mb-2 text-main">Rp {item.harga}/night</div>
                                                 <p class="text-gray-700 text-base">
                                                     <LinesEllipsis
                                                         text={item.deskripsi}
@@ -278,8 +278,8 @@ export default class Home extends React.Component {
                                                     {item.kamar.length} room available
                                                 </div>
                                             </div>
-                                            <div class="px-6 pt-4 pb-2">
-                                                <button class="mb-2 ml-40 bg-blue-600 hover:bg-blue-700 text-white font-bold p-2 w-1/3 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => this.handleDetail(item)}>
+                                            <div class="px-6 pt-4">
+                                                <button class="mb-2 ml-40 bg-main hover:bg-blue-700 text-white font-bold p-2 w-1/3 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => this.handleDetail(item)}>
                                                     Detail
                                                 </button>
                                             </div>
