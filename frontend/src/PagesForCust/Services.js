@@ -8,46 +8,48 @@ import { faBowlFood, faBed , faSwimmingPool} from "@fortawesome/free-solid-svg-i
 export default class Services extends React.Component {
     render() {
         return (
-            <div>
+            <div name='services' className='relative bg-krem min-h-screen flex-1 flex-col justify-between'>
                 <Navbar />
-
+                
                 <div className="text-center pb-8">
-                    <p className='p-8 text-5xl font-bold'>The <span className="text-red-600">Services</span> You Get From OYO</p>
-                    <p className="mr-64 ml-64  text-gray-600 text-xl">No more Suitable than NextHotel</p>
+                    <p className='p-8 text-5xl font-bold'>The <span className="text-main">Services</span> You Get From AndesHotel</p>
+                    <p className="mr-64 ml-64  text-gray-600 text-xl">No more Suitable than AndesHotel</p>
                 </div>
 
                 <div class="flex flex-row ml-12 mr-12 mt-4">
                     <div class="basis-1/3">
                         <div class="max-w-sm p-6 bg-gray-100 rounded-lg shadow h-60 border border-gray-200 drop-shadow-md">
-                            <div className="mb-2"><FontAwesomeIcon icon={faBowlFood} size="2x" color="red" /></div>
+                            <div className="mb-2 text-main" ><FontAwesomeIcon icon={faBowlFood} size="2x"  /></div>
                             <a href="#">
                                 <h5 class="mb-2 text-2xl font-semibold text-black-600">High Quality Foods</h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than NextHotel</p>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than AndesHotel</p>
 
                         </div>
                     </div>
                     <div class="basis-1/3">
                         <div class="max-w-sm p-6 bg-gray-100 rounded-lg shadow h-60 border border-gray-200 drop-shadow-md">
-                            <div className="mb-2"><FontAwesomeIcon icon={faBed} size="2x" color="red" /></div>
+                            <div className="mb-2 text-main"><FontAwesomeIcon icon={faBed} size="2x"  /></div>
                             <a href="#">
                                 <h5 class="mb-2 text-2xl font-semibold text-black-600">Simple & Elegant Room</h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than NextHotel</p>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than AndesHotel</p>
 
                         </div>
                     </div>
                     <div class="basis-1/3">
                         <div class="max-w-sm p-6 bg-gray-100 rounded-lg shadow h-60 border border-gray-200 drop-shadow-md">
-                            <div className="mb-2"><FontAwesomeIcon icon={faSwimmingPool} size="2x" color="red" /></div>
+                            <div className="mb-2 text-main"><FontAwesomeIcon icon={faSwimmingPool} size="2x"  /></div>
                             <a href="#">
                                 <h5 class="mb-2 text-2xl font-semibold text-black-600">Swimming Pool</h5>
                             </a>
-                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than NextHotel</p>
+                            <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">No more Suitable than AndesHotel</p>
                         </div>
+                        
                     </div>
+                    
                 </div>
-
+                
             </div>
         )
     }
