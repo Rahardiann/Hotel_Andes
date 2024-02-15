@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "freedb_andes123",
-    "password": "9EdYtWwCPKV6p?@",
-    "database": "freedb_andes123",
-    "host": "sql.freedb.tech",
+    "username": "root",
+    "password": null,
+    "database": "ukk_hotel_2024",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
