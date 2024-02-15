@@ -40,12 +40,13 @@ export default class Sidebar extends React.Component {
         return (
 
             <aside
-                class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-black"
+                class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-main"
             >
                 <div class="sidebar-header flex items-center justify-center py-4">
                     <div class="inline-flex">
                         <a href="#" class="inline-flex flex-row items-center">
-                            <span class="leading-10 text-white text-2xl font-bold ml-1 uppercase">Wikusama</span>
+                            <img src="/assets/logo.png" class="w-12 h-12 text-red-400" fill="currentColor" viewBox="0 0 20 20" />
+                            <span class="leading-10 text-blue-600 text-2xl font-bold ml-1 uppercase">NextHotel</span>
                         </a>
                     </div>
                 </div>
@@ -56,7 +57,7 @@ export default class Sidebar extends React.Component {
                                 href="/dashboard"
                                 class="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
                             >
-                                <span class="mr-2 flex items-center justify-center text-lg text-gray-400">
+                                <span class="mr-2 flex items-center justify-center text-lg text-main-400">
                                     <FontAwesomeIcon icon={faHome} color="white" />
                                 </span>
                                 <span class="ml-3">Dashboard</span>
@@ -79,7 +80,7 @@ export default class Sidebar extends React.Component {
                                 class="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
                             >
                                 <span class="mr-3 flex items-center justify-center text-lg text-gray-400">
-                                    <FontAwesomeIcon icon={faList} color="whtie" />
+                                    <FontAwesomeIcon icon={faList} color="white" />
                                 </span>
                                 <span class="ml-3">Kamar</span>
                             </a>
