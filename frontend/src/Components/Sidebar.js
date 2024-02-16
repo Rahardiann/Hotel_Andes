@@ -45,8 +45,8 @@ export default class Sidebar extends React.Component {
                 <div class="sidebar-header flex items-center justify-center py-4">
                     <div class="inline-flex">
                         <a href="#" class="inline-flex flex-row items-center">
-                            <img src="/assets/logo.png" class="w-12 h-12 text-red-400" fill="currentColor" viewBox="0 0 20 20" />
-                            <span class="leading-10 text-blue-600 text-2xl font-bold ml-1 uppercase">NextHotel</span>
+                            <img src="/assets/logo1.png" class="w-12 h-12 text-red-400" fill="currentColor" viewBox="0 0 20 20" />
+                           
                         </a>
                     </div>
                 </div>

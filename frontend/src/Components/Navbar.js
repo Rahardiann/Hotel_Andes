@@ -42,7 +42,7 @@ export default class Navbar extends Component {
             <nav class="bg-main px-5 sm:px-8 w-full z-20 top-0 left-0 drop-shadow-md md:drop-shadow-xl">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
                     <NavLink to="/home" className="hidden lg:block h-10 ml-3 w-10 mr-0 ">
-                        <img src="/assets/logo.png" alt="icon" />
+                        <img src="/assets/logo1.png" alt="icon" />
                     </NavLink>
                     <div class="flex md:order-2">
                         {this.state.isLogin ? (
