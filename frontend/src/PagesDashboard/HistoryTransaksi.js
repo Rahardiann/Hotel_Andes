@@ -313,6 +313,12 @@ export default class HistoryTransaksi extends React.Component {
                                                         scope="col"
                                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                                     >
+                                                        Harga
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
                                                         Status
                                                     </th>
                                                     {this.state.role === 'resepsionis' && (
@@ -380,6 +386,11 @@ export default class HistoryTransaksi extends React.Component {
                                                             <td className="px-6 py-4 whitespace-nowrap">
                                                                 <div className="text-sm text-gray-900">
                                                                     {moment(item.tanggal_check_out).format('DD-MM-YYYY')}
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                                <div className="text-sm text-gray-900">
+                                                                {item.tipe_kamar.harga * item.total_kamar}
                                                                 </div>
                                                             </td>
                                                             <td className="px-6 py-4 whitespace-nowrap">
