@@ -49,7 +49,7 @@ const PrintElement = (props) => {
                             <td className="p-4 text-center">{item.total_kamar}</td>
                             <td className="p-4 text-left">{moment(item.tanggal_check_in).format('DD-MM-YYYY')}</td>
                             <td className="p-4 text-left">{moment(item.tanggal_check_out).format('DD-MM-YYYY')}</td>
-                            <td className="p-4 text-left">{item.tipe_kamar.harga}</td>
+                            <td className="p-4 text-left">{item.tipe_kamar.harga * item.total_kamar}</td>
                         </tr>
                     </tbody>
                 </table>
