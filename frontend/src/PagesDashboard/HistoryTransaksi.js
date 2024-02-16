@@ -48,7 +48,7 @@ const PrintElement = (props) => {
                             <td className="p-4 text-center">{item.total_kamar}</td>
                             <td className="p-4 text-left">{moment(item.tanggal_check_in).format('DD-MM-YYYY')}</td>
                             <td className="p-4 text-left">{moment(item.tanggal_check_out).format('DD-MM-YYYY')}</td>
-                            <td className="p-4 text-left">{item.tipe_kamar.harga}</td>
+                            <td className="p-4 text-left">{item.tipe_kamar.harga * item.total_kamar}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -56,6 +56,7 @@ const PrintElement = (props) => {
         </div>
     )
 }
+
 export default class HistoryTransaksi extends React.Component {
     constructor() {
         super()
@@ -116,13 +117,30 @@ export default class HistoryTransaksi extends React.Component {
         $("#modal_booking").hide()
     }
 
-    handleEditStatus = (item) => {
-        $("#modal_booking").show()
+    handleEditStatus = (item, status) => {
+        // $("#modal_booking").show()
         this.setState({
             id_pemesanan: item.id_pemesanan,
             status_pemesanan: item.status_pemesanan,
             action: "update"
+
         })
+        let form = {
+            id_pemesanan: item.id_pemesanan,
+            status_pemesanan: status
+        }
+        if (this.state.action === "update") {
+            let url = "http://localhost:8080/booking/update/status/" + this.state.id_pemesanan
+            axios.put(url, form, this.headerConfig())
+                .then(response => {
+                    this.getBooking()
+                    this.handleClose()
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+
+        }
     }
 
     handleSave = (e) => {
@@ -295,6 +313,12 @@ export default class HistoryTransaksi extends React.Component {
                                                         scope="col"
                                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                                     >
+                                                        Harga
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
                                                         Status
                                                     </th>
                                                     {this.state.role === 'resepsionis' && (
@@ -365,6 +389,11 @@ export default class HistoryTransaksi extends React.Component {
                                                                 </div>
                                                             </td>
                                                             <td className="px-6 py-4 whitespace-nowrap">
+                                                                <div className="text-sm text-gray-900">
+                                                                {item.tipe_kamar.harga * item.total_kamar}
+                                                                </div>
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap">
                                                                 {item.status_pemesanan === "baru" &&
                                                                     <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-indigo-800">
                                                                         {item.status_pemesanan}
@@ -390,26 +419,26 @@ export default class HistoryTransaksi extends React.Component {
                                                             {this.state.role === 'resepsionis' && (
                                                                 <td className="px-6 py-4 whitespace-nowrap" name="status_pemesanan" value={this.state.status_pemesanan} onChange={this.handleChange} required onSubmit={(event) => this.handleSave(event)}>
                                                                
-                                                                    <button class="bg-green-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item)} type="submit" value="baru">
+                                                                    <button class="bg-green-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item, "baru")} type="submit" value="baru">
                                                                         <FontAwesomeIcon
                                                                             icon={faReceipt}
                                                                             size="lg"
                                                                         />
                                                                     </button>
-                                                                    <button class="bg-blue-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item)} type="submit" value="check_in">
+                                                                    <button class="bg-blue-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item, "check_in")} type="submit" value="check_in">
                                                                         <FontAwesomeIcon
                                                                             icon={faSignIn}
                                                                             size="lg"
                                                                         />
                                                                     </button>
                                                                     
-                                                                    <button class="bg-red-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item)} type="submit" value="check_out">
+                                                                    <button class="bg-red-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item, "check_out")} type="submit" value="check_out">
                                                                         <FontAwesomeIcon
                                                                             icon={faSignOut}
                                                                             size="lg"
                                                                         />
                                                                     </button>
-                                                                    <button class="bg-yellow-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item)} type="submit" value="services">
+                                                                    <button class="bg-yellow-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2" onClick={() => this.handleEditStatus(item, "services")} type="submit" value="services">
                                                                         <FontAwesomeIcon
                                                                             icon={faBrush}
                                                                             size="lg"
