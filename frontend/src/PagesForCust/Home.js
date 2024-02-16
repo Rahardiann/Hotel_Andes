@@ -453,6 +453,10 @@ export default class Home extends React.Component {
                                             <input type="date" name="tanggal_check_out" id="tanggal_check_out" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-800 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800" placeholder="Choose check out date" value={this.state.tanggal_check_out} onChange={this.handleChange} required />
                                         </div>
                                         <div>
+                                            <label for="harga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">Harga</label>
+                                            <input type="text" name="harga" id="tanggal_pemesanan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-800 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800" placeholder="Harga" value={this.state.harga * this.state.total_kamar} onChange={this.handleChange} required disabled />
+                                        </div>
+                                        <div>
                                             <label for="id_user" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">Resepsionis</label>
                                             <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-800 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="Jenis Room Type" name="id_user" value={this.state.id_user} onChange={this.handleChange} required>
                                                 <option value="">Confirm your booking with</option>
