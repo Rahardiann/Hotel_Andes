@@ -115,21 +115,21 @@ export default class Dashboard extends React.Component {
                     <Header />
                     <div class="main-content flex flex-col flex-grow p-4">
                         <div class="flex flex-row h-40">
-                            <div class="w-1/2 text-gray-700 text-center bg-rose-300 px-4 py-2 m-2 rounded-md border-2  border-rose-400 ">
+                            <div class="w-1/2 text-white text-center bg-main px-4 py-2 m-2 rounded-md border-2   ">
                                 <p class="mt-8 text-xl font-medium">Jumlah User</p>
                                 <p class="text-lg font-bold">{this.state.user}</p>
                             </div>
-                            <div class="w-1/2 text-gray-700 text-center bg-fuchsia-300 px-4 py-2 m-2 rounded-md border-2  border-fuchsia-400 ">
+                            <div class="w-1/2 text-white text-center bg-main px-4 py-2 m-2 rounded-md border-2   ">
                                 <p class="mt-8 text-xl font-medium">Jumlah Customer</p>
                                 <p class="text-lg font-bold">{this.state.customer}</p>
                             </div>
                         </div>
                         <div class="flex flex-row h-40">
-                            <div class="w-1/2 text-gray-700 text-center bg-sky-300 px-4 py-2 m-2 rounded-md border-2  border-sky-400 ">
+                            <div class="w-1/2 text-white text-center bg-main px-4 py-2 m-2 rounded-md border-2   ">
                                 <p class="mt-8 text-xl font-medium">Jumlah kamar</p>
                                 <p class="text-lg font-bold">{this.state.kamar}</p>
                             </div>
-                            <div class="w-1/2 text-gray-700 text-center bg-cyan-300 px-4 py-2 m-2 rounded-md border-2  border-cyan-400 ">
+                            <div class="w-1/2 text-white text-center bg-main px-4 py-2 m-2 rounded-md border-2   ">
                                 <p class="mt-8 text-xl font-medium">Jumlah Type kamar</p>
                                 <p class="text-lg font-bold">{this.state.tipe_kamar}</p>
                             </div>
