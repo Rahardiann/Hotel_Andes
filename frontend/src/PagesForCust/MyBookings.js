@@ -10,7 +10,7 @@ import '@progress/kendo-theme-material/dist/all.css';
 import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 
 //ini untuk print
-const PrintElement = (props) => {
+const PrintElemen = (props) => {
     const { item } = props;
 
     return (
@@ -362,7 +362,7 @@ export default class MyBookings extends React.Component {
                 >
                     <PDFExport ref={this.state.pdfExportComponent}>
                         <div ref={this.state.container}>
-                            {this.state.isPrint ? <PrintElement item={this.state.dataPrint}/> : null}
+                            {this.state.isPrint ? <PrintElemen item={this.state.dataPrint}/> : null}
                         </div>
                     </PDFExport>
                 </div>
