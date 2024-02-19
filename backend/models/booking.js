@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     tanggal_check_out: DataTypes.DATE,
     nama_tamu: DataTypes.STRING,
     total_kamar: DataTypes.INTEGER,
-    status_pemesanan: DataTypes.ENUM('baru', 'check_in', 'check_out')
+    status_pemesanan: DataTypes.ENUM('baru', 'check_in', 'check_out', 'services')
   }, {
     sequelize,
     modelName: 'pemesanan',
