@@ -88,9 +88,9 @@ const Printhistory = (props) => {
   const { item } = props;
 
   return (
-    <div className="mt-4" style={{ width: "1600px", height: "430px" }}>
+    <div className="mt-4" style={{ width: "1900px", height: "430px" }}>
       <div className="hotel-invoice">
-        <h1 className="font-bold">Invoice Booking Room</h1>
+        <h1 className="font-bold">History Transaksi</h1>
 
         <div className="invoice-details">
           <div>
@@ -106,36 +106,33 @@ const Printhistory = (props) => {
               823278378223
             </p>
           </div>
-          <div>
-            <p>
-              <span className="font-semibold">Date: </span>{" "}
-              {moment(Date.now()).format("DD-MM-YYYY")}
-            </p>
-            <p>
-              <span className="font-semibold">Invoice:</span>{" "}
-            </p>
-            <span className="mt-1 px-3 py-2 inline-flex text-xl leading-5 font-semibold rounded bg-red-100 text-red-800">
-              BOOK - {item.nomor_pemesanan}
-            </span>
-          </div>
+          <div></div>
         </div>
 
         <table className="invoice-items">
           <thead>
             <tr>
-              <th className="p-4 text-left">Type Room</th>
-              <th className="p-4 text-center">Total-Day</th>
-              <th className="p-4 text-center">Check In</th>
-              <th className="p-4 text-center">Check Out</th>
-              <th className="p-4 text-center">Price</th>
+              <th className="p-4 text-left">NOMOR PESANAN</th>
+              <th className="p-4 text-left">NAMA CUSTOMER</th>
+              <th className="p-4 text-left">TIPE KAMAR</th>
+              <th className="p-4 text-center">TOTAL KAMAR</th>
+              <th className="p-4 text-left">PEMESANAN</th>
+              <th className="p-4 text-left">CHECK IN</th>
+              <th className="p-4 text-left">CHECK OUT</th>
+              <th className="p-4 text-left">HARGA</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td className="p-4 text-left">{item.nomor_pemesanan}</td>
+              <td className="p-4 text-left">{item.nama_customer}</td>
               <td className="p-4 text-left">
                 {item.tipe_kamar.nama_tipe_kamar}
               </td>
               <td className="p-4 text-center">{item.total_kamar}</td>
+              <td className="p-4 text-left">
+                {moment(item.tanggal_pemesanan).format("DD-MM-YYYY")}
+              </td>
               <td className="p-4 text-left">
                 {moment(item.tanggal_check_in).format("DD-MM-YYYY")}
               </td>
@@ -308,17 +305,45 @@ export default class HistoryTransaksi extends React.Component {
     }
   };
 
-  handlePrint = (item) => {
+  handlePrintElement = (item) => {
     let element = this.state.container.current;
 
+    let printItem = item;
+
     this.setState({
-      dataPrint: item,
+      dataPrint: printItem,
       isPrint: true,
     });
 
     setTimeout(() => {
       savePDF(element, {
         fileName: `invoice-${item.nomor_pemesanan}`,
+      });
+
+      this.setState({
+        isPrint: false,
+      });
+    }, 500);
+  };
+
+  handlePrintHistory = () => {
+    let element = this.state.container.current; // Define 'element' variable here
+
+    let printItem = this.state.booking;
+
+    if (!printItem || printItem.length === 0) {
+      console.error("Booking data is empty or invalid.");
+      return;
+    }
+
+    this.setState({
+      dataPrint: printItem,
+      isPrint: true,
+    });
+
+    setTimeout(() => {
+      savePDF(element, {
+        fileName: `history-transaksi`,
       });
 
       this.setState({
@@ -361,23 +386,24 @@ export default class HistoryTransaksi extends React.Component {
                   <FontAwesomeIcon icon={faSearch} size="" />
                 </button>
                 {this.state.role === "resepsionis" && (
-                  <button
-                    className="ml-2 px-4 text-white bg-green-600 rounded hover:bg-green-700"
-                    onClick={this.handlePrint}
+                  <td
+                    className="whitespace-nowrap"
+                    name="status_pemesanan"
+                    value={this.state.status_pemesanan}
+                    onChange={this.handleChange}
+                    required
+                    onSubmit={(event) => this.handleSave(event)}
                   >
-                    <FontAwesomeIcon icon={faPrint} size="" />
-                  </button>
+                    <button
+                      className="ml-2 py-2 px-8 text-white bg-green-600 rounded hover:bg-green-700"
+                      onClick={this.handlePrintHistory} // Mengubah onClick agar memanggil fungsi handlePrintHistory tanpa argument
+                    >
+                      <FontAwesomeIcon icon={faPrint} size="" />
+                    </button>
+                  </td>
                 )}
               </div>
-              <div className="hidden-on-narrow">
-                          <PDFExport ref={this.state.pdfExportComponent}>
-                            <div ref={this.state.container}>
-                              {this.state.isPrint ? (
-                                <PrintElement item={this.state.dataPrint} />
-                              ) : null}
-                            </div>
-                          </PDFExport>
-                        </div>
+             
             </div>
 
             <div className="flex flex-col mt-2 mr-4">
@@ -606,7 +632,9 @@ export default class HistoryTransaksi extends React.Component {
                                 >
                                   <button
                                     class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded"
-                                    onClick={() => this.handlePrint(item)}
+                                    onClick={() =>
+                                      this.handlePrintElement(item)
+                                    }
                                   >
                                     <FontAwesomeIcon icon={faPrint} size="lg" />
                                   </button>
@@ -615,11 +643,17 @@ export default class HistoryTransaksi extends React.Component {
                             </tr>
                           );
                         })}
-                        <div className="hidden-on-narrow">
+                        <div>
                           <PDFExport ref={this.state.pdfExportComponent}>
                             <div ref={this.state.container}>
                               {this.state.isPrint ? (
-                                <PrintElement item={this.state.dataPrint} />
+                                Array.isArray(this.state.dataPrint) ? (
+                                  this.state.dataPrint.map((item, index) => (
+                                    <Printhistory key={index} item={item} />
+                                  ))
+                                ) : (
+                                  <PrintElement item={this.state.dataPrint} />
+                                )
                               ) : null}
                             </div>
                           </PDFExport>
