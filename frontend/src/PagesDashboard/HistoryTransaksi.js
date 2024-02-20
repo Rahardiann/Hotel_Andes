@@ -380,7 +380,7 @@ export default class HistoryTransaksi extends React.Component {
                   onChange={this.handleChange}
                 />
                 <button
-                  className="w-1/3 ml-2 px-4 text-white bg-blue-600 rounded hover:bg-blue-700"
+                  className="w-1/3 ml-2 px-4 text-white bg-main rounded hover:bg-black"
                   onClick={this._handleFilter}
                 >
                   <FontAwesomeIcon icon={faSearch} size="" />
@@ -540,12 +540,12 @@ export default class HistoryTransaksi extends React.Component {
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap">
                                 {item.status_pemesanan === "baru" && (
-                                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-indigo-800">
+                                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-gray-800">
                                     {item.status_pemesanan}
                                   </span>
                                 )}
                                 {item.status_pemesanan === "check_in" && (
-                                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-red-800">
+                                  <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-gray-800">
                                     {item.status_pemesanan}
                                   </span>
                                 )}
@@ -570,7 +570,7 @@ export default class HistoryTransaksi extends React.Component {
                                   onSubmit={(event) => this.handleSave(event)}
                                 >
                                   <button
-                                    class="bg-green-600 hover:bg-green-700 text-white py-1 px-2 rounded mr-2"
+                                    class="bg-green-600 hover:bg-black text-white py-1 px-2 rounded mr-2"
                                     onClick={() =>
                                       this.handleEditStatus(item, "baru")
                                     }

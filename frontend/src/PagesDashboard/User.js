@@ -229,7 +229,7 @@ export default class User extends React.Component {
                                     <FontAwesomeIcon icon={faSearch} color="blue" />
                                 </button>
                                 {this.state.role === "admin" &&
-                                    <button className="w-1/3 ml-2 px-4 text-white bg-blue-600 rounded hover:bg-blue-700" onClick={() => this.handleAdd()}>
+                                    <button className="w-1/3 ml-2 px-4 text-white bg-main rounded hover:bg-black" onClick={() => this.handleAdd()}>
                                         <FontAwesomeIcon icon={faPlus} size="" /> Add
                                     </button>
                                 }
