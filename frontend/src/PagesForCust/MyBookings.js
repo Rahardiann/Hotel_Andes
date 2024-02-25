@@ -411,7 +411,7 @@ export default class MyBookings extends React.Component {
                         <button
                             key={pageNumber}
                             onClick={() => this.handleClickPage(pageNumber)}
-                            className={`bg-main hover:bg-black text-white py-1 px-2 rounded mr-2 ${
+                            className={`bg-main hover:bg-black text-white py-2 px-4 rounded mr-2 ${
                                 pageNumber === currentPage ? 'bg-gray-600' : ''
                             }`}
                         >
