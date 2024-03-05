@@ -222,7 +222,7 @@ export default class MyBookings extends React.Component {
             pageNumbers.push(i);
         }
         return (
-            <div name='mybooks' className='relative bg-krem min-h-screen '>
+            <div name='mybooks' className='relative bg-krem min-h-screen'>
                 <Navbar />
 
                 <div className="m-6 pl-6 ">
@@ -238,14 +238,14 @@ export default class MyBookings extends React.Component {
                                 value={this.state.keyword}
                                 onChange={this.handleChange}
                             />
-                            <button className="w-1/6 ml-2 px-4 text-white bg-main rounded hover:bg-black" onClick={this._handleFilter}>
+                            <button className="sm:w-1/2 md:w-1/6 ml-2 px-4 text-white bg-main rounded hover:bg-black" onClick={this._handleFilter}>
                                 <FontAwesomeIcon icon={faSearch} size="" />
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex flex-col mt-2 ml-12 mr-8">
+                <div className="flex flex-col mt-2= ml-12 mr-8 ">
                     <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -398,7 +398,7 @@ export default class MyBookings extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-4 ">
                     <button
                         onClick={this.handlePreviousPage}
                         disabled={currentPage === 1}
@@ -426,8 +426,10 @@ export default class MyBookings extends React.Component {
                         Next
                     </button>
                 </div>
+
+                <div style={{ height: "100px" }}></div>
                 <div
-                    className="hidden-on-narrow"
+                    className="hidden-on-narrow "
                 >
                     <PDFExport ref={this.state.pdfExportComponent}>
                         <div ref={this.state.container}>
