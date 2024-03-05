@@ -206,9 +206,9 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className="relative bg-krem min-h-screen">
+      <div className="relative bg-krem min-h-screen pb-40 ">
         <Navbar />
-        <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
+        <div className="grid md:grid-cols-2 max-w-[1240px] m-auto ">
           <div className="flex items-center justify-center md:justify-start">
             <img
               className="mt-6 md:ml-32 mb-10 w-3/5 h-96"
@@ -223,9 +223,7 @@ export default class Home extends React.Component {
             <p className="text-5xl md:text-5xl text-center font-bold mb-8">
               In AndesHotel.
             </p>
-            <p className="text-md sm:text-center mr-12 mb-4">
-              No more Suitable than AndesHotel{" "}
-            </p>
+            <p className="text-md   mb-4">No more Suitable than AndesHotel </p>
             {this.state.isLogin ? (
               <button
                 className="py-2 px-1 md:w-[25%] text-center my-4 text-white border bg-main border-main rounded-md text-lg font-semibold hover:bg-black hover:text-white"
@@ -244,10 +242,10 @@ export default class Home extends React.Component {
           </div>
         </div>
 
-        <div className="ml-auto mr-auto mt-8  xl:col-span-3  mb-8 w-4/5 bg-krem1 rounded-lg shadow-lg h-auto ">
+        <div className="ml-auto mr-auto mt-8  xl:col-span-3  mb-18 w-4/5 bg-krem1 rounded-lg shadow-lg h-auto  ">
           <div className="grid  md:grid-cols-3 gap-8 p-4">
-            <div className="flex items-center mx-auto">
-              <div className=" mx-auto bg-main p-4 rounded-md h-auto">
+            <div className="flex items-center mx-auto xl:ml-8">
+              <div className=" mx-auto   bg-main p-4 rounded-md h-auto">
                 <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
               </div>
               <div>
@@ -262,8 +260,8 @@ export default class Home extends React.Component {
                 />
               </div>
             </div>
-            <div className="flex items-center mx-auto">
-              <div className="mx-auto bg-main p-4 w-auto rounded-md h-auto">
+            <div className="flex items-center mx-auto xl:mr-72">
+              <div className="mx-auto md:ml-16 bg-main p-4 w-auto rounded-md h-auto">
                 <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
               </div>
               <div>
@@ -278,9 +276,9 @@ export default class Home extends React.Component {
                 />
               </div>
             </div>
-            <div className="flex items-center justify-center md:justify-center ">
+            <div className="flex items-center justify-center md:justify-center  ">
               <button
-                className="bg-main hover:bg-black text-white md:ml-auto w-1/2 font-semibold p-2 pr-2 pl-2 rounded-3xl focus:outline-none focus:shadow-outline"
+                className="bg-main hover:bg-black text-white md:ml-auto w-1/2 font-semibold p-2 pr-2 pl-2 rounded-3xl focus:outline-none focus:shadow-outline "
                 onClick={this._handleFilter}
               >
                 Booking Now
@@ -288,56 +286,50 @@ export default class Home extends React.Component {
             </div>
           </div>
         </div>
-
         {/* ini buat available room */}
         {this.state.rooms.length > 0 && (
-          <div className="bg-krem m-6 pl-6 pt-6 min-h-screen flex flex-col items-center">
-            {" "}
-            {/* Menambahkan kelas flex-col dan items-center */}
-            <p className="text-5xl font-bold mt-2">
-              <span className="text-main">Available</span> Room{" "}
+          <div className="bg-krem m-6 pl-6 pt-6 min-h-screen">
+            <p className="text-5xl font-bold mt-2 text-center">
+              <span className="text-main">Available</span> Room
             </p>
-            <div class="grid grid-cols-4 gap-4 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
               {this.state.rooms.map((item, index) => (
-                <div class="col-span-1">
+                <div key={index} className="md:col-span-1">
                   {/* Card untuk type room */}
-                  <div class="CardEvent">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg border-2 border-gray-200 bg-gray-100">
-                      <div className="container">
-                        <img
-                          class="w-full h-48"
-                          src={
-                            "http://localhost:8080/uploads/image/" + item.foto
-                          }
+                  <div className="max-w-sm rounded overflow-hidden shadow-lg border-2 border-gray-200 bg-gray-100">
+                    <div className="container">
+                      <img
+                        className="w-full h-48"
+                        src={"http://localhost:8080/uploads/image/" + item.foto}
+                        alt={item.nama_tipe_kamar}
+                      />
+                    </div>
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-2xl mb-2">
+                        {item.nama_tipe_kamar}
+                      </div>
+                      <div className="font-bold text-xl mb-2 text-main">
+                        Rp {item.harga}/night
+                      </div>
+                      <p className="text-gray-700 text-base">
+                        <LinesEllipsis
+                          text={item.deskripsi}
+                          maxLine="3"
+                          ellipsis="..."
                         />
+                      </p>
+                      <div className="px-2 py-0.5 text-base mt-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        {item.kamar.length} room available
                       </div>
-                      <div class="px-6 py-4">
-                        <div class="font-bold text-2xl mb-2">
-                          {item.nama_tipe_kamar}
-                        </div>
-                        <div class="font-bold text-xl mb-2 text-main">
-                          Rp {item.harga}/night
-                        </div>
-                        <p class="text-gray-700 text-base">
-                          <LinesEllipsis
-                            text={item.deskripsi}
-                            maxLine="3"
-                            ellipsis="..."
-                          />
-                        </p>
-                        <div class="px-2 py-0.5 text-base mt-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                          {item.kamar.length} room available
-                        </div>
-                      </div>
-                      <div class="px-6 pt-4">
-                        <button
-                          class="mb-2 ml-40 bg-main hover:bg-blue-700 text-white font-bold p-2 w-1/3 rounded focus:outline-none focus:shadow-outline"
-                          type="button"
-                          onClick={() => this.handleDetail(item)}
-                        >
-                          Detail
-                        </button>
-                      </div>
+                    </div>
+                    <div className="px-6 pt-4">
+                      <button
+                        className="mb-2 bg-main hover:bg-blue-700 text-white font-bold p-2 w-full rounded focus:outline-none focus:shadow-outline"
+                        type="button"
+                        onClick={() => this.handleDetail(item)}
+                      >
+                        Detail
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -345,14 +337,13 @@ export default class Home extends React.Component {
             </div>
           </div>
         )}
-
         {/* modal detail room */}
         <div
           id="modal_detail"
           tabindex="-1"
-          class="overflow-x-auto fixed top-0 left-0 right-0 z-50 hidden w-full pt-10 pb-10 pl-96 md:inset-0 h-modal md:h-full bg-tranparent bg-black bg-opacity-50"
+          class="overflow-x-auto fixed top-0 left-0 right-0 z-50 hidden w-full pt-10 pb-10  h-modal md:h-full bg-tranparent bg-black bg-opacity-50"
         >
-          <div class="relative w-full h-full max-w-lg md:h-auto border-2 border-gray-500 rounded-lg shadow shadow-2xl items-center">
+          <div class="relative w-full h-full max-w-lg md:h-auto border-2 border-gray-500 rounded-lg shadow shadow-2xl items-center md:mx-auto">
             <div class="relative bg-white rounded-lg">
               <div class="flex items-center justify-between p-5 border-b rounded-t border-gray-500">
                 <h3 class="p-2 text-xl font-medium text-gray-900 ">
@@ -383,20 +374,22 @@ export default class Home extends React.Component {
               <div class="p-6">
                 <div className="container">
                   <img
-                    class="rounded-md w-200 h-100"
+                    class="rounded-md w-200 h-100 mx-auto"
                     src={
                       "http://localhost:8080/uploads/image/" + this.state.foto
                     }
                   />
                 </div>
                 <div class="px-2 py-4">
-                  <div class="font-bold text-2xl mb-2">
+                  <div class="font-bold text-2xl mb-2 text-center">
                     {this.state.nama_tipe_kamar}
                   </div>
-                  <div class="font-bold text-xl mb-2 text-blue-600">
+                  <div class="font-bold text-xl mb-2 text-center text-blue-600">
                     {this.state.harga}/night
                   </div>
-                  <p class="text-black-700 text-base">{this.state.deskripsi}</p>
+                  <p class="text-black-700 text-base text-center">
+                    {this.state.deskripsi}
+                  </p>
                 </div>
               </div>
             </div>

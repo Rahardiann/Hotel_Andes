@@ -84,7 +84,7 @@ export default class Navbar extends Component {
                 </nav>
                 {/* Navbar untuk layar kecil */}
                 {this.state.isLogin && (
-                    <div className="fixed bottom-0 mb-2 left-0 right-0 z-50 bg-transparent rounded-full bg-white text-white py-4 px-6 bg-hijau shadow-md md:hidden">
+                    <div className="fixed bottom-0 mb-2 mt-8 left-0 right-0 z-50 bg-transparent rounded-full bg-white text-white py-4 px-6 bg-hijau shadow-md md:hidden">
                         <div className="container flex justify-center mx-auto">
                             <NavLink to="/home" className="text-main hover:text-yellow-100 flex flex-col items-center">
                                 <FontAwesomeIcon icon={faHome} size="lg" />
