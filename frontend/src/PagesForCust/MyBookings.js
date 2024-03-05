@@ -63,6 +63,8 @@ export default class MyBookings extends React.Component {
         super()
         this.state = {
             booking: [],
+            currentPage:2,
+            itemsPerPage:5,
             id_pesanan: "",
             id_user: "",
             id_customer: "",
@@ -84,7 +86,11 @@ export default class MyBookings extends React.Component {
             container: React.createRef(null),
             pdfExportComponent: React.createRef(null),
             isPrint: false
-        }
+        };
+        this.handlePreviousPage = this.handlePreviousPage.bind(this);
+        this.handleNextPage = this.handleNextPage.bind(this);
+        this.handleClickPage = this.handleClickPage.bind(this);
+    
 
         this.state.id_customer = localStorage.getItem("id")
         if (localStorage.getItem("token")) {
@@ -99,6 +105,9 @@ export default class MyBookings extends React.Component {
             }
         }
     }
+
+    
+    
 
     headerConfig = () => {
         let header = {
@@ -157,6 +166,24 @@ export default class MyBookings extends React.Component {
         }
     }
 
+    handlePreviousPage() {
+        this.setState((prevState) => ({
+            currentPage: prevState.currentPage - 1
+        }));
+    }
+
+    handleNextPage() {
+        this.setState((prevState) => ({
+            currentPage: prevState.currentPage + 1
+        }));
+    }
+
+    handleClickPage(pageNumber) {
+        this.setState({
+            currentPage: pageNumber
+        });
+    }
+
     handlePrint = (item) => {
         let element = this.state.container.current;
 
@@ -181,6 +208,19 @@ export default class MyBookings extends React.Component {
     }
 
     render() {
+        const { booking, currentPage, itemsPerPage } = this.state;
+
+        // Logic for pagination
+        const indexOfLastItem = currentPage * itemsPerPage;
+        const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+        const currentItems = booking.slice(indexOfFirstItem, indexOfLastItem);
+        const totalNumberOfPages = Math.ceil(booking.length / itemsPerPage);
+
+        // Generate page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= totalNumberOfPages; i++) {
+            pageNumbers.push(i);
+        }
         return (
             <div name='mybooks' className='relative bg-krem min-h-screen '>
                 <Navbar />
@@ -275,7 +315,7 @@ export default class MyBookings extends React.Component {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {this.state.booking.map((item, index) => {
+                                        {currentItems.map((item, index) => {
                                             return (
                                                 <tr key={index}>
                                                     <td className="px-6 py-4 whitespace-nowrap">
@@ -349,6 +389,7 @@ export default class MyBookings extends React.Component {
                                                         </button>
                                                     </td>
                                                 </tr>
+                                                
                                             );
                                         })}
                                     </tbody>
@@ -356,6 +397,34 @@ export default class MyBookings extends React.Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="flex justify-center mt-4">
+                    <button
+                        onClick={this.handlePreviousPage}
+                        disabled={currentPage === 1}
+                        className="bg-main hover:bg-black text-white py-1 px-2 rounded mr-2"
+                    >
+                        Previous
+                    </button>
+                    {/* Numeric pagination buttons */}
+                    {pageNumbers.map((pageNumber) => (
+                        <button
+                            key={pageNumber}
+                            onClick={() => this.handleClickPage(pageNumber)}
+                            className={`bg-main hover:bg-black text-white py-2 px-4 rounded mr-2 ${
+                                pageNumber === currentPage ? 'bg-gray-600' : ''
+                            }`}
+                        >
+                            {pageNumber}
+                        </button>
+                    ))}
+                    <button
+                        onClick={this.handleNextPage}
+                        disabled={indexOfLastItem >= booking.length}
+                        className="bg-main hover:bg-black text-white py-1 px-2 rounded"
+                    >
+                        Next
+                    </button>
                 </div>
                 <div
                     className="hidden-on-narrow"
