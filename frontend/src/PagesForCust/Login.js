@@ -56,39 +56,43 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div className="dashboard1">
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <div className="w-full md:w-1/2 lg:w-3/5 xl:w-1/2 bg-gray-200 text-left">
-                        <form className="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mt-10 mb-10" onSubmit={(e) => this.handleLogin(e)}>
-                            <p className="text-gray-700 text-2xl font-bold mb-4 text-center">Login to NextHotel</p>
+            <div className="dashboard1 bg-cover bg-center">
+                <div className="flex flex-col sm:flex-row">
+                    <div className="md:w-1/2 w-full h-screen bg-gray-200 text-left">
+                        <form className="bg-gray-100 shadow-md rounded px-8 pt-6 p-8 m-24 mt-64 " onSubmit={(e) => this.handleLogin(e)}>
+                            <p className="text-gray-700 text-2xl font-bold mb-8 text-center">Login Dashboard NextHotel</p>
                             <p className="text-gray-700 text-sm font-normal mb-6 text-center">Silahkan login untuk memesan kamar di NextHotel</p>
-                            <div className="mb-2">
+                            <div className="mb-4">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                                     Email
                                 </label>
-                                <input className="shadow appearance-none border border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
+                                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
                             </div>
                             <div className="mb-6">
                                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                                     Password
                                 </label>
-                                <input className="shadow appearance-none border border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
+                                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required />
                             </div>
                             <div className="flex items-center justify-between">
                                 <button className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline" type="submit">
                                     Login
                                 </button>
                             </div>
-                            <p className="text-sm font-normal text-gray-700 text-center mt-3 ">
+                        </form>
+                        <p className="text-sm font-normal text-gray-700 text-center mt-3 ">
                                 Don’t have an account yet? <NavLink to="registercust" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register</NavLink>
                             </p>
-                        </form>
                     </div>
-                    <div className="flex-1 w-2/5 bg-gray-500 text-center hidden sm:flex">
-                        <img src="/assets/PhotoInLogin.png" className="w-full h-auto" alt="" />
+                    <div className="hidden sm:block w-1/2 bg-gray-500 text-center">
+                        <img src="/assets/loginnn.jpeg" className="w-screen h-screen" alt="" />
                     </div>
                 </div>
             </div>
         );
+        
+        
     }
+
+    
 }
