@@ -113,7 +113,7 @@ export default class Rooms extends React.Component {
                   </div>
                 </div>
           
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4 mb-16">
                   {this.state.typeroom.map((item, index) => (
                     <div key={index} className="col-span-1">
                       {/* Card untuk type room */}
