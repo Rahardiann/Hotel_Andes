@@ -257,10 +257,13 @@ export default class TypeRoom extends React.Component {
                                                     </p>
                                                 </div>
                                                 <div class="px-6 pt-4 pb-2">
-                                                    <button class="mb-2 ml-48 bg-main hover:bg-black text-white font-bold p-2 w-1/3 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => this.handleDetail(item)}>
-                                                        Detail
-                                                    </button>
-
+                                                <button 
+                                                    class="mb-2 md:mb-0 md:ml-2 bg-main hover:bg-black text-white font-bold p-2 w-full md:w-auto rounded focus:outline-none focus:shadow-outline" 
+                                                    type="button" 
+                                                    onClick={() => this.handleDetail(item)}
+                                                >
+                                                    Detail
+                                                </button>
                                                 </div>
                                             </div>
                                         </div>
