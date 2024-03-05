@@ -68,9 +68,11 @@ export default class Sidebar extends React.Component {
       >
         <div className="sidebar-header flex items-center justify-center py-4">
           <div className="inline-flex">
-            <a href="#" className="inline-flex flex-row items-center">
-              <img src="/assets/logo1.png" className="w-12 h-12 text-red-400" fill="currentColor" viewBox="0 0 20 20" />
-            </a>
+            {isMobile ? (
+              <a href="#" className="inline-flex flex-row items-center">
+                <img src="/assets/logo1.png" className="w-12 h-12 text-red-400" fill="currentColor" viewBox="0 0 20 20" />
+              </a>
+            ) : null}
           </div>
         </div>
         <div className="sidebar-content px-4 py-6">
@@ -84,99 +86,104 @@ export default class Sidebar extends React.Component {
               </button>
             </div>
           )}
-          <ul className="flex flex-col w-full">
-            <li className="my-px">
-              <a
-                href="/dashboard"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
-              >
-                <span className="mr-2 flex items-center justify-center text-lg text-main-400">
-                  <FontAwesomeIcon icon={faHome} color="white" />
-                </span>
-                <span className="ml-3">Dashboard</span>
-              </a>
-            </li>
-            <li className="my-px">
-              <a
-                href="/typeRoom"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
-              >
-                <span className="mr-2 flex items-center justify-center text-lg text-gray-400">
-                  <FontAwesomeIcon icon={faBed} color="white" />
-                </span>
-                <span className="ml-3">Tipe Kamar</span>
-              </a>
-            </li>
-            <li className="my-px">
-              <a
-                href="/Room"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
-              >
-                <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
-                  <FontAwesomeIcon icon={faList} color="white" />
-                </span>
-                <span className="ml-3">Kamar</span>
-              </a>
-            </li>
-            <li className="my-px">
-              <a
-                href="/user"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
-              >
-                <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
-                  <FontAwesomeIcon icon={faUser} color="white" />
-                </span>
-                <span className="ml-4">User</span>
-              </a>
-            </li>
-            <li className="my-px">
-              <a
-                href="/customer"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
-              >
-                <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
-                  <FontAwesomeIcon icon={faUsers} color="white" />
-                </span>
-                <span className="ml-2">Customer</span>
-              </a>
-            </li>
-            <li className="my-px">
-              <a
-                href="/historytransaksi"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
-              >
-                <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
-                  <FontAwesomeIcon icon={faHistory} color="white" />
-                </span>
-                <span className="ml-3">History Transaksi</span>
-              </a>
-            </li>
-            <li className="my-px" onClick={this.logOut}>
-              <a
-                href="/"
-                className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800"
-              >
-                <span className="mr-3 flex items-center justify-center text-lg text-red-400">
-                  <svg
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="h-6 w-6"
-                  >
-                    <path
-                      d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
-                    />
-                  </svg>
-                </span>
-                <span className="ml-2" onClick={this.logOut}>Logout</span>
-              </a>
-            </li>
-          </ul>
+          {!isMobile && (
+            <ul className="flex flex-col w-full">
+              <li className="my-px">
+                <a
+                  href="/dashboard"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
+                >
+                  <span className="mr-2 flex items-center justify-center text-lg text-main-400">
+                    <FontAwesomeIcon icon={faHome} color="white" />
+                  </span>
+                  <span className="ml-3">Dashboard</span>
+                </a>
+              </li>
+              <li className="my-px">
+                <a
+                  href="/typeRoom"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
+                >
+                  <span className="mr-2 flex items-center justify-center text-lg text-gray-400">
+                    <FontAwesomeIcon icon={faBed} color="white" />
+                  </span>
+                  <span className="ml-3">Tipe Kamar</span>
+                </a>
+              </li>
+              <li className="my-px">
+                <a
+                  href="/Room"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
+                >
+                  <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
+                    <FontAwesomeIcon icon={faList} color="white" />
+                  </span>
+                  <span className="ml-3">Kamar</span>
+                </a>
+              </li>
+              <li className="my-px">
+                <a
+                  href="/user"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
+                >
+                  <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
+                    <FontAwesomeIcon icon={faUser} color="white" />
+                  </span>
+                  <span className="ml-4">User</span>
+                </a>
+              </li>
+              <li className="my-px">
+                <a
+                  href="/customer"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
+                >
+                  <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
+                    <FontAwesomeIcon icon={faUsers} color="white" />
+                  </span>
+                  <span className="ml-2">Customer</span>
+                </a>
+              </li>
+              <li className="my-px">
+                <a
+                  href="/historytransaksi"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800 font-base"
+                >
+                  <span className="mr-3 flex items-center justify-center text-lg text-gray-400">
+                    <FontAwesomeIcon icon={faHistory} color="white" />
+                  </span>
+                  <span className="ml-3">History Transaksi</span>
+                </a>
+              </li>
+              <li className="my-px" onClick={this.logOut}>
+                <a
+                  href="/"
+                  className="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-blue-100 hover:text-blue-800"
+                >
+                  <span className="mr-3 flex items-center justify-center text-lg text-red-400">
+                    <svg
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="h-6 w-6"
+                    >
+                      <path
+                        d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </span>
+                  <span className="ml-2" onClick={this.logOut}>Logout</span>
+                </a>
+              </li>
+            </ul>
+          )}
         </div>
       </aside>
     );
   }
 }
+
+
+

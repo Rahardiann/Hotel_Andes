@@ -238,6 +238,12 @@ export default class kamar extends React.Component {
                                                     >
                                                         Nomor Kamar
                                                     </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                    >
+                                                        Jumlah Kamar
+                                                    </th>
                                                     {<th
                                                         scope="col"
                                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
