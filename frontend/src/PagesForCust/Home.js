@@ -207,91 +207,87 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="relative bg-krem min-h-screen">
-        <Navbar />
-        <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
-          <div>
-            <img
-              className="mt-6 ml-32 mb-10 w-3/5 h-96"
-              src="/assets/roomType1.png"
-              alt="/"
-            />
-          </div>
-          <div className="flex flex-col justify-center md:items-start w-full px-2 py-8">
-            <p className="py-3 text-5xl md:text-5xl font-bold">
-              Find <span className="text-main">Suitable</span> Room
-            </p>
-            <p className="text-5xl md:text-5xl font-bold mb-8">
-              In AndesHotel.
-            </p>
-            <p className="text-md mr-12 mb-4">
-              No more Suitable than NextHotel{" "}
-            </p>
-            {this.state.isLogin ? (
-              <button
-                className="py-2 px-1 sm:w-[25%] my-4 text-white border bg-main border-main rounded-md text-lg font-semibold hover:bg-black hover:text-white"
-                onClick={() => this.showModal()}
-              >
-                Booking Now
-              </button>
-            ) : (
-              <button
-                className="py-2 px-1 sm:w-[25%] my-4 text-white border bg-main border-main rounded-md text-lg font-semibold hover:bg-black hover:text-white"
-                onClick={() => this.showAlertMustLogin()}
-              >
-                Booking Now
-              </button>
-            )}
-          </div>
+      <Navbar />
+      <div className="grid md:grid-cols-2 max-w-[1240px] m-auto">
+        <div className="flex items-center justify-center md:justify-start">
+          <img
+            className="mt-6 md:ml-32 mb-10 w-3/5 h-96"
+            src="/assets/roomType1.png"
+            alt="/"
+          />
         </div>
+        <div className="flex flex-col items-center justify-center lg:items-start w-full px-2 py-8">
+          <p className="py-3 text-5xl md:text-5xl text-center font-bold">
+            Find <span className="text-main">Suitable</span> Room
+          </p>
+          <p className="text-5xl md:text-5xl text-center font-bold mb-8">
+            In AndesHotel.
+          </p>
+          <p className="text-md md:text-center mr-12 mb-4">
+            No more Suitable than NextHotel{" "}
+          </p>
+          {this.state.isLogin ? (
+            <button
+              className="py-2 px-1 md:w-[25%] text-center my-4 text-white border bg-main border-main rounded-md text-lg font-semibold hover:bg-black hover:text-white"
+              onClick={() => this.showModal()}
+            >
+              Booking Now
+            </button>
+          ) : (
+            <button
+              className="py-2 px-1 md:w-[25%] my-4  text-white border bg-main border-main rounded-md text-lg font-semibold hover:bg-black hover:text-white"
+              onClick={() => this.showAlertMustLogin()}
+            >
+              Booking Now
+            </button>
+          )}
+        </div>
+      </div>
 
-        <div className="ml-auto mr-auto mt-8 mb-8 w-3/5 bg-krem1 rounded-lg shadow-lg h-auto">
-          <div className="flex flex-row items-center justify-between p-4">
-            <div className="pr-10 pl-10 pt-5 pb-6">
-              <div className="flex items-center">
-                <div className="mr-3 bg-main p-4 rounded-md h-auto">
-                  <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
-                </div>
-                <div>
-                  <h3 className="mb-1 font-bold">Check-In Date</h3>
-                  <input
-                    type="date"
-                    name="in"
-                    id="in"
-                    className="border-2 border-main rounded-md p-1"
-                    value={this.state.in}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
+      <div className="ml-auto mr-auto mt-8  xl:col-span-2  mb-8 w-3/5 bg-krem1 rounded-lg shadow-lg h-auto">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 p-4">
+          <div className="flex items-center">
+            <div className="mr-3 bg-main p-4 rounded-md h-auto">
+              <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
             </div>
-            <div className="pr-10 pl-4 pt-5 pb-6">
-              <div className="flex items-center">
-                <div className="mr-3 bg-main p-4 rounded-md h-auto">
-                  <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
-                </div>
-                <div>
-                  <h3 className="mb-1 font-bold">Check-Out Date</h3>
-                  <input
-                    type="date"
-                    name="out"
-                    id="out"
-                    className="border-2 border-main rounded-md p-1"
-                    value={this.state.out}
-                    onChange={this.handleChange}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="pr-2 pl-2 pt-4">
-              <button
-                className="bg-main hover:bg-black text-white font-semibold p-2 pr-8 pl-8 w-full rounded-3xl focus:outline-none focus:shadow-outline"
-                onClick={this._handleFilter}
-              >
-                Booking Now
-              </button>
+            <div>
+              <h3 className="mb-1 font-bold">Check-In Date</h3>
+              <input
+                type="date"
+                name="in"
+                id="in"
+                className="border-2 border-main rounded-md p-1"
+                value={this.state.in}
+                onChange={this.handleChange}
+              />
             </div>
           </div>
+          <div className="flex items-center">
+            <div className="mr-3 bg-main p-4 rounded-md h-auto">
+              <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
+            </div>
+            <div>
+              <h3 className="mb-1 font-bold">Check-Out Date</h3>
+              <input
+                type="date"
+                name="out"
+                id="out"
+                className="border-2 border-main rounded-md p-1"
+                value={this.state.out}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="flex items-center">
+            <button
+              className="bg-main hover:bg-black text-white font-semibold p-2 pr-8 pl-8 w-full rounded-3xl focus:outline-none focus:shadow-outline"
+              onClick={this._handleFilter}
+            >
+              Booking Now
+            </button>
+          </div>
         </div>
+      </div>
 
         {/* ini buat available room */}
         {this.state.rooms.length > 0 && (

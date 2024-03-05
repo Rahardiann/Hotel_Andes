@@ -64,7 +64,7 @@ export default class Sidebar extends React.Component {
 
     return (
       <aside
-        className={`sidebar w-64 md:shadow transition-transform duration-150 ease-in bg-main ${isMobile && !isSidebarOpen ? '-translate-x-full md:translate-x-0' : ''}`}
+        className={`sidebar w-64 lg:shadow transition-transform duration-150 ease-in bg-main ${isMobile && !isSidebarOpen ? '-translate-x-full lg:translate-x-0' : ''}`}
       >
         <div className="sidebar-header flex items-center justify-center py-4">
           <div className="inline-flex">
