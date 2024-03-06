@@ -400,14 +400,12 @@ export default class Home extends React.Component {
         <div
           id="modal_booking"
           tabindex="-1"
-          class="overflow-x-auto fixed top-0 left-0 right-0 z-50 hidden w-full pt-10 pb-10 pl-96 md:inset-0 h-modal md:h-full bg-tranparent bg-black bg-opacity-50"
+          class="overflow-x-auto fixed inset-0 z-50 hidden bg-black bg-opacity-50"
         >
-          <div class="relative w-full h-full max-w-lg md:h-auto border-2 border-gray-500 rounded-lg shadow shadow-2xl items-center">
-            <div class="relative bg-white rounded-lg">
-              <div class="flex items-center justify-between p-5 border-b rounded-t border-gray-500">
-                <h3 class="p-2 text-xl font-medium text-gray-900 ">
-                  Add Booking Room
-                </h3>
+          <div class="flex items-center justify-center min-h-screen">
+            <div class="bg-white rounded-lg md:max-w-lg mx-4">
+              <div class="flex items-center justify-between p-4 border-b">
+                <h3 class="text-lg font-medium text-gray-900">Add Booking Room</h3>
                 <button
                   type="button"
                   class="text-gray-400 bg-transparent hover:bg-red-500 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white"
