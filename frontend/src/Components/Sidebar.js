@@ -54,7 +54,7 @@ export default class Sidebar extends React.Component {
   checkRole() {
     if (this.state.role !== 'admin' && this.state.role !== 'resepsionis') {
       localStorage.clear();
-      window.alert("You're not admin or resepsionis!");
+      window.alert("You're not admin or resepsinis!");
       window.location = '/';
     }
   }
