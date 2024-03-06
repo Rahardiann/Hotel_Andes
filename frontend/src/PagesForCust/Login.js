@@ -59,7 +59,7 @@ export default class Login extends React.Component {
             <div className="dashboard1 bg-cover bg-center">
                 <div className="flex flex-col sm:flex-row">
                     <div className="md:w-1/2 w-full h-screen bg-gray-200 text-left">
-                        <form className="bg-gray-100 shadow-md rounded px-8 pt-6 p-8 m-24  " onSubmit={(e) => this.handleLogin(e)}>
+                        <form className="bg-gray-100 shadow-md rounded px-8 pt-6 p-8 m-24 mt-8  " onSubmit={(e) => this.handleLogin(e)}>
                             <p className="text-gray-700 text-2xl font-bold mb-8 text-center">Login Customer NextHotel</p>
                             <p className="text-gray-700 text-sm font-normal mb-6 text-center">Silahkan login untuk memesan kamar di NextHotel</p>
                             <div className="mb-4">
