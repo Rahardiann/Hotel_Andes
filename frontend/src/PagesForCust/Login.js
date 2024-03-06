@@ -59,7 +59,7 @@ export default class Login extends React.Component {
             <div className="dashboard1 bg-cover bg-center">
                 <div className="flex flex-col sm:flex-row">
                     <div className="md:w-1/2 w-full h-screen bg-gray-200 text-left">
-                        <form className="bg-gray-100 shadow-md rounded px-8 pt-6 p-8 m-24 mt-64 " onSubmit={(e) => this.handleLogin(e)}>
+                        <form className="bg-gray-100 shadow-md rounded px-8 pt-6 p-8 m-24  " onSubmit={(e) => this.handleLogin(e)}>
                             <p className="text-gray-700 text-2xl font-bold mb-8 text-center">Login Customer NextHotel</p>
                             <p className="text-gray-700 text-sm font-normal mb-6 text-center">Silahkan login untuk memesan kamar di NextHotel</p>
                             <div className="mb-4">
@@ -81,7 +81,7 @@ export default class Login extends React.Component {
                             </div>
                         </form>
                         <p className="text-sm font-normal text-gray-700 text-center mt-3 ">
-                                Don’t have an account yet? <NavLink to="registercust" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register</NavLink>
+                                Don’t have an account yet? <NavLink to="/registercust" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register</NavLink>
                             </p>
                     </div>
                     <div className="hidden sm:block w-1/2 bg-gray-500 text-center">
