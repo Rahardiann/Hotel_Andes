@@ -188,14 +188,14 @@ export default class Customer extends React.Component {
         return (
             <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800">
                 <Sidebar />
-                <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
+                <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in md:bg-gray-100 bg-gray-100">
                     <Header />
                     <div class="main-content flex flex-col flex-grow p-4">
-
+    
                         <h1 class="font-bold text-xl text-black-700">Daftar Customer</h1>
                         <p class="text-gray-700">For customer NextHotel</p>
-
-                        <div className="flex mt-2 flex-row-reverse mr-4">
+    
+                        <div className="flex mt-2 flex-row-reverse md:mr-4">
                             <div className="flex rounded w-1/2">
                                 <input
                                     type="text"
@@ -215,8 +215,8 @@ export default class Customer extends React.Component {
                                 }
                             </div>
                         </div>
-
-                        <div className="flex flex-col mt-2 mr-4">
+    
+                        <div className="flex flex-col mt-2 md:mr-4">
                             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                     <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -311,7 +311,7 @@ export default class Customer extends React.Component {
                                 </div>
                             </div>
                         </div>
-
+    
                     </div>
                     <footer class="footer px-4 py-2">
                         <div class="footer-content">
@@ -319,7 +319,7 @@ export default class Customer extends React.Component {
                         </div>
                     </footer>
                 </main>
-
+    
                 {/* Modal Form */}
                 <div id="modal_customer" tabindex="-1" aria-hidden="true" class="overflow-x-auto fixed top-0 left-0 right-0 z-50 hidden w-full p-4 md:inset-0 h-modal md:h-full bg-tranparent bg-black bg-opacity-50">
                     <div class="flex lg:h-auto w-auto justify-center ">
@@ -351,19 +351,19 @@ export default class Customer extends React.Component {
                                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">Password Customer</label>
                                         <input type="password" name="password" id="password" value={this.state.password} onChange={this.handleChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-gray-800 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-800" placeholder="Masukkan password customer" required disabled={this.state.action === "update" ? true : false} />
                                     </div>
-
+    
                                     <button type="submit" class="w-full text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
+    
             </div>
-
-
+    
+    
         );
-
-
     }
+    
+    
 }

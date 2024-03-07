@@ -189,14 +189,14 @@ export default class kamar extends React.Component {
 
     render() {
         return (
-            <div class="flex flex-row min-h-screen bg-gray-100 text-gray-800">
+            <div className="flex flex-row min-h-screen bg-gray-100 md:bg-gray text-gray-800">
                 <Sidebar />
-                <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
+                <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in md:bg-gray-100 bg-gray-100">
                     <Header />
-                    <div class="main-content flex flex-col flex-grow p-4">
-                        <h1 class="font-bold text-xl text-black-700">Daftar kamar</h1>
-                        <p class="text-gray-700">For kamar in NextHotel</p>
-
+                    <div className="main-content flex flex-col flex-grow p-4">
+                        <h1 className="font-bold text-xl text-black-700">Daftar kamar</h1>
+                        <p className="text-gray-700">For kamar in NextHotel</p>
+    
                         <div className="flex mt-2 flex-row-reverse mr-4">
                             <div className="flex rounded w-1/2">
                                 <input
@@ -215,9 +215,11 @@ export default class kamar extends React.Component {
                                         <FontAwesomeIcon icon={faPlus} size="" /> Add
                                     </button>
                                 }
-
+    
                             </div>
                         </div>
+    
+                        {/* Table content */}
 
                         <div className="flex flex-col mt-2 mr-4">
                             <div className="-my-2 mx-6 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -309,15 +311,15 @@ export default class kamar extends React.Component {
                                 </div>
                             </div>
                         </div>
-
+    
                     </div>
-                    <footer class="footer px-4 py-2">
-                        <div class="footer-content">
-                            <p class="text-sm text-gray-600 text-center">© NextHotel 2023. All rights reserved. <a href="https://twitter.com/iaminos">by Matori</a></p>
+                    <footer className="footer px-4 py-2">
+                        <div className="footer-content">
+                            <p className="text-sm text-gray-600 text-center">© NextHotel 2023. All rights reserved. <a href="https://twitter.com/iaminos">by Matori</a></p>
                         </div>
                     </footer>
                 </main>
-
+    
                 {/* Modal Form */}
                 <div id="modal_kamar" tabindex="-1" aria-hidden="true" class="overflow-x-auto fixed top-0 left-0 right-0 z-50 hidden w-full p-4 md:inset-0 h-modal md:h-full bg-tranparent bg-black bg-opacity-50">
                     <div class="flex lg:h-auto w-auto justify-center ">
@@ -348,7 +350,9 @@ export default class kamar extends React.Component {
                         </div>
                     </div>
                 </div>
+    
             </div>
         );
     }
+    
 }
